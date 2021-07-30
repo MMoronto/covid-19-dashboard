@@ -7,16 +7,22 @@ import {
 import './App.css';
 
 function App() {
+  const [countries, setCountries] = useState([
+      'USA', 'UK', 'Niger'
+    ]);
   return (
     <div className="app">
       <div className="app__header">
         <h1>COVID-19 TRACKER</h1>
         <FormControl className="app__dropdown">
           <Select variant="outlined" value="abc">
-            <MenuItem value="worldwide">Worldwide</MenuItem>
+            {/* Loop through all the countries & show a drop down list of the options*/}
+
+            
+{/*            <MenuItem value="worldwide">Worldwide</MenuItem>
             <MenuItem value="worldwide">Option two</MenuItem>
             <MenuItem value="worldwide">Option 3</MenuItem>
-            <MenuItem value="worldwide">Option iv</MenuItem>
+            <MenuItem value="worldwide">Option iv</MenuItem>*/}
           </Select>
         </FormControl>        
       </div>
