@@ -10,6 +10,25 @@ function App() {
   const [countries, setCountries] = useState([
       'USA', 'UK', 'Niger'
     ]);
+
+  // https://disease.sh/v3/covid-19/countries
+
+  // USEEFFECT = Runs a piece of code based on a given condition
+
+  useEffect(() => {
+    // The code in here will run once 
+    // when the component loads & not again after
+    // async -> send a request, wait for it, do something with it
+
+    const getCountriesData = async () => {
+      await fetch ("https://disease.sh/v3/covid-19/countries")
+      .then((response) => response.json())
+      .then((data) => {
+        
+      })
+    }
+  }, []);
+
   return (
     <div className="app">
       <div className="app__header">
