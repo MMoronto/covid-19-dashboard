@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MenuItem, 
   FormControl, 
@@ -18,8 +18,11 @@ function App() {
           <Select variant="outlined" value="abc">
             {/* Loop through all the countries & show a drop down list of the options*/}
 
-            
-{/*            <MenuItem value="worldwide">Worldwide</MenuItem>
+            {countries.map((country) => (
+                <MenuItem value={country}>{country}</MenuItem>
+              ))}
+
+        {/* <MenuItem value="worldwide">Worldwide</MenuItem>
             <MenuItem value="worldwide">Option two</MenuItem>
             <MenuItem value="worldwide">Option 3</MenuItem>
             <MenuItem value="worldwide">Option iv</MenuItem>*/}
