@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   MenuItem, 
   FormControl, 
@@ -7,26 +7,23 @@ import {
 import './App.css';
 
 function App() {
-  const [countries, setCountries] = useState([
-      'USA', 'UK', 'Niger'
-    ]);
-
-  // https://disease.sh/v3/covid-19/countries
-
-  // USEEFFECT = Runs a piece of code based on a given condition
+  const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    // The code in here will run once 
-    // when the component loads & not again after
-    // async -> send a request, wait for it, do something with it
-
     const getCountriesData = async () => {
       await fetch ("https://disease.sh/v3/covid-19/countries")
       .then((response) => response.json())
       .then((data) => {
-        
-      })
-    }
+        const countries = data.map((country) => ({
+            name: country.country,
+            value: country.countryInfo.iso2, // UK, USA, FR
+          }));
+
+          setCountries(countries);
+      });
+    };
+
+    getCountriesData();
   }, []);
 
   return (
@@ -38,13 +35,13 @@ function App() {
             {/* Loop through all the countries & show a drop down list of the options*/}
 
             {countries.map((country) => (
-                <MenuItem value={country}>{country}</MenuItem>
+                <MenuItem value={country.value}>{country.name}</MenuItem>
               ))}
 
         {/* <MenuItem value="worldwide">Worldwide</MenuItem>
             <MenuItem value="worldwide">Option two</MenuItem>
             <MenuItem value="worldwide">Option 3</MenuItem>
-            <MenuItem value="worldwide">Option iv</MenuItem>*/}
+            <MenuItem value="worldwide">Option iv</MenuItem> */}
           </Select>
         </FormControl>        
       </div>
