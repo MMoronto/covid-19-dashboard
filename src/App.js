@@ -31,6 +31,8 @@ function App() {
     const countryCode = event.target.value;
 
     console.log("FINESSE", countryCode);
+
+    setCountry(countryCode);
   };
 
   return (
