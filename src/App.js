@@ -29,9 +29,6 @@ function App() {
 
   const onCountryChange = (event) => {
     const countryCode = event.target.value;
-
-    console.log("FINESSE", countryCode);
-
     setCountry(countryCode);
   };
 
@@ -54,14 +51,12 @@ function App() {
         </FormControl>        
       </div>
 
+      <div className="app__stats">
+        {/* info box title="Coronavirus cases" */}
+        {/* info box title="Coronavirus recoveries" */}
+        {/* info box title="Coronavirus deaths" */}
+      </div>
 
-
-      {/* Header */}
-      {/* Title + Select input dropdown field */}
-
-      {/* info box */}
-      {/* info box */}
-      {/* info box */}
 
       {/* Table */}
       {/* Graph */}
