@@ -8,4 +8,5 @@ export const sortData = (data) => {
 		return 1;
 		}
 	})
+	return sortedData;
 }
