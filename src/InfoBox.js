@@ -6,10 +6,10 @@ function InfoBox({ title, cases, total }) {
 		<Card>
 			<CardContent>
 				{/* Title i.e. Coronavirus cases */}
-				<Typography color>
+				<Typography color="textSecondary">
 					{title}
 				</Typography>
-				
+
 				{/* +120 Number of cases */}
 
 				{/* 1.2M Total */}
