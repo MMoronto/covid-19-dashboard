@@ -31,7 +31,7 @@ function App() {
           }));
 
           const sortedData = sortData(data);
-          setTableData(data);
+          setTableData(sortedData);
           setCountries(countries);
       });
     };
