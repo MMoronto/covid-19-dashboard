@@ -26,7 +26,7 @@ function App() {
     getCountriesData();
   }, []);
 
-  const onCountryChange = (event) => {
+  const onCountryChange = async (event) => {
     const countryCode = event.target.value;
     setCountry(countryCode);
 
@@ -37,12 +37,12 @@ function App() {
 
     await fetch(url)
     .then(response => response.json())
-    .then(data => {
+    .then((data) => {
       setCountry(countryCode);
 
       // All of the data from the country response
       setCountryInfo(data);
-    })
+    });
   };
 
   console.log("COUNTRY INFO >>>", countryInfo)
@@ -63,9 +63,9 @@ function App() {
         </div>
 
         <div className="app__stats">
-          <InfoBox title="Coronavirus Cases" cases={123} total={2000} />
-          <InfoBox title="Recovered" cases={1234} total={3500} />
-          <InfoBox title="Deaths" cases={123456} total={4000} />
+          <InfoBox title="Coronavirus Cases" cases={countryInfo.todayCases} total={countryInfo.cases} />
+          <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
+          <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
         </div>
 
         {/* Map */}
