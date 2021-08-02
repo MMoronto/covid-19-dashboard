@@ -6,6 +6,11 @@ body {
   background-color: #ff11ff10;
 }
 
+.app {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .app__header {
   display:  flex;
   align-items: center;
