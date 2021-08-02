@@ -4,6 +4,7 @@ import {
   FormControl, 
   Select,
 } from "@material-ui/core";
+import InfoBox from './Infobox';
 import './App.css';
 
 function App() {
@@ -52,6 +53,12 @@ function App() {
       </div>
 
       <div className="app__stats">
+        <InfoBox title="Coronavirus Cases" cases={123} total={2000} />
+
+        <InfoBox title="Recovered" cases={1234} total={3500} />
+
+        <InfoBox title="Deaths" cases={123456} total={3500} />
+
         {/* info box title="Coronavirus cases" */}
         {/* info box title="Coronavirus recoveries" */}
         {/* info box title="Coronavirus deaths" */}
