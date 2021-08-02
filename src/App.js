@@ -38,9 +38,14 @@ function App() {
     await fetch(url)
     .then(response => response.json())
     .then(data => {
+      setCountry(countryCode);
 
+      // All of the data from the country response
+      setCountryInfo(data);
     })
   };
+
+  console.log("COUNTRY INFO >>>", countryInfo)
 
   return (
     <div className="app">
