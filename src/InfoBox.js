@@ -3,10 +3,19 @@ import { Card, CardContent, Typography } from "@material-ui";
 
 function InfoBox({ title, cases, total }) {
 	return (
-		<div>
+		<Card>
+			<CardContent>
+				{/* Title i.e. Coronavirus cases */}
+				<Typography color>
+					{title}
+				</Typography>
+				
+				{/* +120 Number of cases */}
 
-		</div>
-		)
+				{/* 1.2M Total */}
+			</CardContent>
+		</Card>
+	)
 }
 
 export default InfoBox
