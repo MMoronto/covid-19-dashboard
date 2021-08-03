@@ -1,24 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { Line } from "react-chartjs-2";
 
+const options = {
+	legend: {
+		display: false;
+	},
+	elements: {
+	point: {
+		radius: 0,
+		},
+	},
+	maintainAspectRatio: false,
+	tooltips: {
+		mode: "index",
+		intersect: false,
+		callbacks: {
+			label: function (tooltipItem, data) {
+				return numeral(tooltipItem.value).format("+0,0");
+			},
+		},
+	},
+}
+
+
 function LineGraph() {
 	const [data, setData] = useState({});
 
 	// https://disease.sh/v3/covid-19/historical/all?lastdays=120
 
-	const buildChartData = (data, casesType='cases') => {
+	const buildChartData = (data, casesType= "cases") => {
 		const chartData = [];
 		let lastDataPoint;
-		data[casesType].forEach(date => {
+		for(let date in data.cases) {
+		// data[casesType].forEach(date => {
 			if (lastDataPoint) {
 				const newDataPoint = {
 					x: date,
 					y: data[casesType][date] - lastDataPoint
-				}
+				};
 				chartData.push(newDataPoint);
 			}
 			lastDataPoint = data[casesType][date];
-		});
+		}
 		return chartData;
 	};
 
@@ -26,7 +49,9 @@ function LineGraph() {
 		fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=120')
 		.then(response => response.json())
 		.then(data => {
-			const chartData = buildChartData(data);
+			let chartData = buildChartData(data, 'cases');
+			console.log(chartData);
+
 			setData(chartData);
 		});
 	}, []);
@@ -34,7 +59,9 @@ function LineGraph() {
 	return (
 		<div>
 			<h1>Graph goes here</h1>
-			<Line data={{
+			<Line 
+			options={options}
+			data={{
 				datasets: [
 				{
 					backgroundColor: "rgba(204, 16, 52, 0.5)",
