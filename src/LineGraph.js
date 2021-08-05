@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
 
+// Add this in your component file
+require('react-dom');
+window.React2 = require('react');
+console.log(window.React1 === window.React2);
+
 const options = {
 	legend: {
 		display: false,
