@@ -13,6 +13,7 @@ const App = () => {
   const [country, setCountry] = useState('worldwide');
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
+  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
 
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
@@ -83,7 +84,11 @@ const App = () => {
           <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
         </div>
 
-        <Map />
+        <Map 
+          center={mapCenter}
+          zoom={mapZoom}
+        />
+
       </div>
       <Card className="app__right">
         <CardContent>
