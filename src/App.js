@@ -7,7 +7,7 @@ import Table from "./Table";
 import { sortData } from "./util";
 import LineGraph from "./LineGraph";
 
-function App() {
+const App = () => {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState('worldwide');
   const [countryInfo, setCountryInfo] = useState({});
@@ -82,7 +82,6 @@ function App() {
           <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
         </div>
 
-        {/* Map */}
         <Map />
       </div>
       <Card className="app__right">
