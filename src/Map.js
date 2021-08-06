@@ -2,7 +2,7 @@ import React from 'react';
 import "./Map.css";
 import { Map as LeafletMap, TileLayer } from "react-leaflet";
 
-function Map() {
+function Map({ center, zoom }) {
 	return (
 		<div className="map">
 			<LeafletMap center={center} zoom={zoom}>
