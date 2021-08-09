@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { MenuItem, FormControl, Select, Card, CardContent } from "@material-ui/core";
-import InfoBox from './InfoBox';
+import InfoBox from "./InfoBox";
 import Map from './Map';
-import './App.css';
+import "./App.css";
 import Table from "./Table";
 import { sortData } from "./util";
 import LineGraph from "./LineGraph";
@@ -14,6 +14,7 @@ const App = () => {
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
   const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
+  const [mapZoom, setMapZoom] = useState(3);
 
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
