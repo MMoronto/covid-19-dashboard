@@ -56,9 +56,10 @@ const App = () => {
     .then(response => response.json())
     .then((data) => {
       setCountry(countryCode);
-
-      // All of the data from the country response
       setCountryInfo(data);
+
+      setMapCenter([data.countryInfo.lat, data.countryInfo.lng]);
+      setMapZoom(4);
     });
   };
 
