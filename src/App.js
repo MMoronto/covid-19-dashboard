@@ -92,6 +92,7 @@ const App = () => {
             active={casesType === "cases"}
             onClick={e => setCasesType('cases')} 
             title="Coronavirus Cases" 
+            isRed
             cases={prettyPrintStat(countryInfo.todayCases)} 
             total={prettyPrintStat(countryInfo.cases)} 
           />
@@ -123,7 +124,7 @@ const App = () => {
         <CardContent>
           <h3>Live Cases by Country</h3>
           <Table countries={tableData} />
-          <h3>Worldwide new cases</h3>
+          <h3>Worldwide new {casesType}</h3>
           <LineGraph className="app__graph" casesType={casesType} />        
         </CardContent>       
       </Card>      
