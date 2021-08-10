@@ -38,7 +38,7 @@ body {
   flex-direction: column;
 }
 
-.app right .muiCardContent-root {
+.app__right .MuiCardContent-root {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
