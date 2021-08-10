@@ -102,14 +102,15 @@ const App = () => {
             onClick={e => setCasesType('recovered')}
             title="Recovered" 
             cases={prettyPrintStat(countryInfo.todayRecovered)} 
-            total={prettyPrintStat(countryInfo.recovered)} 
+            total={numeral(countryInfo.recovered).format("0.0a")} 
           />
           <InfoBox 
             active={casesType === "deaths"}
             onClick={e => setCasesType('deaths')}
             title="Deaths" 
+            isRed
             cases={prettyPrintStat(countryInfo.todayDeaths)} 
-            total={prettyPrintStat(countryInfo.deaths)} 
+            total={numeral(countryInfo.deaths).format("0.0a")} 
           />
         </div>
 
