@@ -5,6 +5,7 @@ import Map from './Map';
 import "./App.css";
 import Table from "./Table";
 import { sortData, prettyPrintStat } from "./util";
+import numeral from "numeral";
 import LineGraph from "./LineGraph";
 import "leaflet/dist/leaflet.css";
 
@@ -94,7 +95,7 @@ const App = () => {
             title="Coronavirus Cases" 
             isRed
             cases={prettyPrintStat(countryInfo.todayCases)} 
-            total={prettyPrintStat(countryInfo.cases)} 
+            total={numeral(countryInfo.cases).format("0.0a")} 
           />
           <InfoBox 
             active={casesType === "recovered"}
