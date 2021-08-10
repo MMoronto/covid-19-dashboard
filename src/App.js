@@ -76,7 +76,7 @@ const App = () => {
     <div className="app">
       <div className="app__left">
         <div className="app__header">
-          <h1>COVID-19 TRACKER</h1>
+          <h1>COVID-19 DASHBOARD</h1>
           <FormControl className="app__dropdown">
             <Select variant="outlined" onChange={onCountryChange} value={country}>
               <MenuItem value="worldwide">Worldwide</MenuItem>
@@ -124,7 +124,7 @@ const App = () => {
           <h3>Live Cases by Country</h3>
           <Table countries={tableData} />
           <h3>Worldwide new cases</h3>
-          <LineGraph casesType={casesType} />        
+          <LineGraph className="app__graph" casesType={casesType} />        
         </CardContent>       
       </Card>      
     </div>
